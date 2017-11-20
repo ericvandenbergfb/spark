@@ -660,10 +660,10 @@ class FsHistoryProviderSuite extends SparkFunSuite with BeforeAndAfter with Matc
   }
 
   /**
-    * Validate aggressive clean up removes incomplete or corrupt history files that would
-    * otherwise be missed during clean up.  Also validate no behavior change if aggressive
-    * clean up is disabled.
-    */
+   * Validate aggressive clean up removes incomplete or corrupt history files that would
+   * otherwise be missed during clean up.  Also validate no behavior change if aggressive
+   * clean up is disabled.
+   */
   test("SPARK-21571: aggressive clean up removes incomplete history files") {
     createCleanAndCheckIncompleteLogFiles(14, 21, true, true, true, true, true)
     createCleanAndCheckIncompleteLogFiles(14, 21, false, false, false, true, false)
@@ -672,17 +672,17 @@ class FsHistoryProviderSuite extends SparkFunSuite with BeforeAndAfter with Matc
   }
 
   /**
-    * Create four test incomplete/corrupt history files and invoke a check and clean cycle that
-    * passes followed by one occurring after the max age days rentention window and assert the
-    * expected number of history files remain.
-    * @param maxAgeDays maximum retention in days, used to simulate current time
-    * @param lastModifiedDaysAgo last modified date for test files relative to current time
-    * @param aggressiveCleanup aggressive clean up is enabled or not
-    * @param expectEmptyInprogressRemoved expect an empty inprogress file to be removed
-    * @param expectEmptyCorruptRemoved expect an empty corrupt complete file to be removed
-    * @param expectNonEmptyInprogressRemoved expect a non-empty inprogress file to be removed
-    * @param expectNonEmptyCorruptRemoved expect a non-empty corrupt complete file to be removed
-    */
+   * Create four test incomplete/corrupt history files and invoke a check and clean cycle that
+   * passes followed by one occurring after the max age days rentention window and assert the
+   * expected number of history files remain.
+   * @param maxAgeDays maximum retention in days, used to simulate current time
+   * @param lastModifiedDaysAgo last modified date for test files relative to current time
+   * @param aggressiveCleanup aggressive clean up is enabled or not
+   * @param expectEmptyInprogressRemoved expect an empty inprogress file to be removed
+   * @param expectEmptyCorruptRemoved expect an empty corrupt complete file to be removed
+   * @param expectNonEmptyInprogressRemoved expect a non-empty inprogress file to be removed
+   * @param expectNonEmptyCorruptRemoved expect a non-empty corrupt complete file to be removed
+   */
   private def createCleanAndCheckIncompleteLogFiles(
       maxAgeDays: Long,
       lastModifiedDaysAgo: Long,
